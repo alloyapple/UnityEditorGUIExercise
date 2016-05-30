@@ -21,13 +21,26 @@ public class ToolBarItemWindow : EditorWindow {
 					EditorUtility.DisplayDialog("hello", "Button click is " + i, "确定"); 
 				}
 			}
+		
+			GUI.backgroundColor = backupColor;
+
+			GUILayout.Button("Change Background Color", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false));
+
+			var color = GUI.color;
+			GUI.color = Color.red;
+
+			GUILayout.Button("Change  Color", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false));
+			GUI.color = color;
 		}
-		GUI.backgroundColor = backupColor;
-
-		GUILayout.Button("Test Color", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false));
-
-			
 		GUILayout.EndHorizontal();
+
+		EditorGUILayout.BeginHorizontal(GUILayout.MinHeight(10f));
+		{
+			EditorGUILayout.SelectableLabel("hello World");
+			EditorGUILayout.Space();
+			EditorGUILayout.SelectableLabel("hello Swift");
+		}
+		EditorGUILayout.EndHorizontal();
 			
 	}
 }
