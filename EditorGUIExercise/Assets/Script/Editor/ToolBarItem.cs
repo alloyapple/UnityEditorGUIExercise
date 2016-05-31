@@ -26,11 +26,11 @@ public class ToolBarItemWindow : EditorWindow {
 
 			GUILayout.Button("Change Background Color", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false));
 
-			var color = GUI.color;
-			GUI.color = Color.red;
+			var color = GUI.contentColor;
+			GUI.contentColor = Color.red;
 
 			GUILayout.Button("Change  Color", EditorStyles.toolbarButton, GUILayout.ExpandWidth(false));
-			GUI.color = color;
+			GUI.contentColor = color;
 		}
 		GUILayout.EndHorizontal();
 
@@ -41,6 +41,24 @@ public class ToolBarItemWindow : EditorWindow {
 			EditorGUILayout.SelectableLabel("hello Swift");
 		}
 		EditorGUILayout.EndHorizontal();
+
+		var r = EditorGUILayout.BeginHorizontal("Button");
+		{
+			if (GUI.Button(r, GUIContent.none)) {
+				Debug.Log("Go here");
+			}
+
+			GUILayout.Label("I am in side button");
+			GUILayout.Label("So am I");
+		}
+
+		EditorGUILayout.EndHorizontal();
+
+		Texture2D sprite = (Texture2D)AssetDatabase.LoadAssetAtPath("Assets/Texture/bird.png", typeof(Texture2D));
+
+		EditorGUI.DrawPreviewTexture(new Rect(0, 100, 32, 32), sprite);
+
+
 			
 	}
 }
