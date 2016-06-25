@@ -51,11 +51,18 @@ public class ToolBarItemWindow : EditorWindow {
 		GUI.EndGroup();
 	}
 
+	string RectToString(Rect rect) {
+
+		return "{" + rect.x + "," + rect.y + "," + rect.width + "," + rect.height + "}";
+	}
+
 	void DrawBackground(float ratio) {
 		Rect rect = GUILayoutUtility.GetRect(0, 0);
 		rect.width = Screen.width - rect.xMin;
 		rect.height = Screen.width * ratio;
 		GUILayout.Space(rect.height);
+
+		Debug.Log("rect is " + RectToString(rect));
 
 		if (Event.current.type == EventType.Repaint) {
 			Texture2D blank = EditorGUIUtility.whiteTexture;

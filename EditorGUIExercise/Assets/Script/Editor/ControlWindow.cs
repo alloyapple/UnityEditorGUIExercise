@@ -28,6 +28,8 @@ public class ControlWindow : EditorWindow {
 										"OK");
 		}
 
+
+
 		GUILayout.EndVertical();
 		
 	}
